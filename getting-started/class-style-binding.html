@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>class and style binding</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">{{ isActive }}</div>
+
+    <script>
+        var data = {
+            isActive: true,
+            hasError: false
+        }
+        var vm = new Vue({
+            el: '.static',
+            data: data
+        })
+    </script>
+</body>
+
+</html>
