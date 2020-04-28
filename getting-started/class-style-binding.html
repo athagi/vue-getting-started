@@ -9,7 +9,7 @@
 
 <body>
     <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">{{ isActive }}</div>
-
+    <div id="app1" v-bind:class="classObject">aaa</div>
     <script>
         var data = {
             isActive: true,
@@ -18,6 +18,16 @@
         var vm = new Vue({
             el: '.static',
             data: data
+        })
+
+        new Vue({
+            el: '#app1',
+            data: {
+                classObject: {
+                    active: true,
+                    'text-danger': false
+                }
+            }
         })
     </script>
 </body>
