@@ -11,6 +11,7 @@
     <div id="example">
         <p>Original message: "{{ message }}"</p>
         <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        <p>Reversed message: "{{ alReverseMessage() }}"</p>
     </div>
 
     <script>
@@ -23,6 +24,11 @@
                 // 算出 getter 関数
                 reversedMessage: function() {
                     // `this` は vm インスタンスを指します
+                    return this.message.split('').reverse().join('')
+                }
+            },
+            methods: {
+                alReverseMessage: function() {
                     return this.message.split('').reverse().join('')
                 }
             }
