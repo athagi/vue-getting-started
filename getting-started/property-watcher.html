@@ -12,6 +12,7 @@
         <p>Original message: "{{ message }}"</p>
         <p>Computed reversed message: "{{ reversedMessage }}"</p>
         <p>Reversed message: "{{ alReverseMessage() }}"</p>
+        <p>now "{{ now }}"</p>
     </div>
 
     <script>
@@ -25,6 +26,9 @@
                 reversedMessage: function() {
                     // `this` は vm インスタンスを指します
                     return this.message.split('').reverse().join('')
+                },
+                now: function() {
+                    return Date.now()
                 }
             },
             methods: {
