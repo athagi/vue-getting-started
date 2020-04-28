@@ -10,6 +10,8 @@
 <body>
     <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">{{ isActive }}</div>
     <div id="app1" v-bind:class="classObject">aaa</div>
+    <div id="app2" v-bind:class="[activeClass, errorClass]"></div>
+
     <script>
         var data = {
             isActive: true,
@@ -28,6 +30,15 @@
                     'text-danger': false
                 }
             }
+        })
+
+        new Vue({
+            el: '#app2',
+            data: {
+                activeClass: 'active',
+                errorClass: 'text-danger'
+            }
+
         })
     </script>
 </body>
