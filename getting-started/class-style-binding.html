@@ -11,6 +11,8 @@
     <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">{{ isActive }}</div>
     <div id="app1" v-bind:class="classObject">aaa</div>
     <div id="app2" v-bind:class="[activeClass, errorClass]"></div>
+    <div id="app3" v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">aaa</div>
+
 
     <script>
         var data = {
@@ -32,13 +34,21 @@
             }
         })
 
+
         new Vue({
             el: '#app2',
             data: {
                 activeClass: 'active',
                 errorClass: 'text-danger'
             }
+        })
 
+        var vm3 = new Vue({
+            el: "#app3",
+            data: {
+                activeColor: 'red',
+                fontSize: 30
+            }
         })
     </script>
 </body>
