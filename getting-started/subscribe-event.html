@@ -17,6 +17,12 @@
         <!-- `greet` は、あらかじめ定義したメソッドの名前 -->
         <button v-on:click="greet">Greet</button>
     </div>
+
+    <div id="example-3">
+        <button v-on:click="say('hi')">Say hi</button>
+        <button v-on:click="say('what')">Say what</button>
+    </div>
+
     <script>
         var example1 = new Vue({
             el: '#example-1',
@@ -45,5 +51,14 @@
 
         // JavaScript からメソッドを呼び出すこともできます
         // example2.greet() // => 'Hello Vue.js!'
+
+        new Vue({
+            el: '#example-3',
+            methods: {
+                say: function(message) {
+                    alert(message)
+                }
+            }
+        })
     </script>
 </body>
