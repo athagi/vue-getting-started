@@ -67,6 +67,15 @@
         </ul>
     </div>
 
+    <div id="app5">
+        <ul v-if="todos.length">
+            <li v-for="todo in todos">
+                {{ todo }}
+            </li>
+        </ul>
+        <p v-else>No todos left!</p>
+    </div>
+
     <script>
         var example1 = new Vue({
             el: '#example-1',
@@ -147,6 +156,14 @@
                     message: 'Bar'
                 }]
             }
+        })
+
+        new Vue({
+            el: "#app5",
+            data: {
+                todos: [1, 2, 3, 4, 5]
+            },
+
         })
     </script>
 </body>
