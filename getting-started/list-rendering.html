@@ -24,6 +24,24 @@
         </ul>
     </div>
 
+    <div>
+        <ul id="v-for-object" class="demo">
+            <li v-for="value in object">
+                {{ value }}
+            </li>
+            <br>
+            <div v-for="(value, name) in object">
+                {{ name }}: {{ value }}
+            </div>
+            <br>
+            <div v-for="(value, name, index) in object">
+                {{ index }}. {{ name }}: {{ value }}
+            </div>
+        </ul>
+
+
+    </div>
+
     <script>
         var example1 = new Vue({
             el: '#example-1',
@@ -45,6 +63,17 @@
                 }, {
                     message: 'Bar'
                 }]
+            }
+        })
+
+        var vm1 = new Vue({
+            el: '#v-for-object',
+            data: {
+                object: {
+                    title: 'How to do lists in Vue',
+                    author: 'Jane Doe',
+                    publishedAt: '2016-04-10'
+                }
             }
         })
     </script>
