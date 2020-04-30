@@ -45,6 +45,17 @@
         </div>
     </div>
 
+    <div id="app5">
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address">
+        </template>
+    </div>
+
 
     <script>
         var vm1 = new Vue({
@@ -69,6 +80,13 @@
             el: "#app4",
             data: {
                 type: "A"
+            }
+        })
+
+        var vm5 = new Vue({
+            el: "#app5",
+            data: {
+                loginType: 'username'
             }
         })
     </script>
