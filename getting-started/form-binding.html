@@ -35,7 +35,7 @@
         <br>
         <span>Checked names: {{ checkedNames }}</span>
     </div>
-
+    <hr>
     <div id="example-4">
         <input type="radio" id="one" value="One" v-model="picked">
         <label for="one">One</label>
@@ -45,23 +45,55 @@
         <br>
         <span>Picked: {{ picked }}</span>
     </div>
+    <hr>
+
+    <div id="example-5">
+        <select v-model="selected">
+            <option disabled value="">Please select one</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+
+    <div id="example-6">
+        <select v-model="selected" multiple>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <br>
+        <span>Selected: {{ selected }}</span>
+    </div>
+
+    <div id="example-7">
+        <select v-model="selected ">
+            <option v-for="option in options " v-bind:value="option.value ">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+    <hr>
+
     <script>
         new Vue({
-            el: "#example-1",
+            el: "#example-1 ",
             data: {
-                message: ""
+                message: " "
             }
         })
 
         new Vue({
-            el: "#example-2",
+            el: "#example-2 ",
             data: {
-                message: ""
+                message: " "
             }
         })
 
         new Vue({
-            el: "#example-3",
+            el: "#example-3 ",
             data: {
                 checked: false
             }
@@ -78,7 +110,38 @@
         new Vue({
             el: '#example-4',
             data: {
-                picked: ""
+                picked: " "
+            }
+        })
+
+        new Vue({
+            el: '#example-5',
+            data: {
+                selected: " "
+            }
+        })
+
+        new Vue({
+            el: '#example-6',
+            data: {
+                selected: []
+            }
+        })
+
+        new Vue({
+            el: "#example-7 ",
+            data: {
+                selected: 'A',
+                options: [{
+                    text: 'One',
+                    value: 'A'
+                }, {
+                    text: 'Two',
+                    value: 'B'
+                }, {
+                    text: 'Three',
+                    value: 'C'
+                }]
             }
         })
     </script>
