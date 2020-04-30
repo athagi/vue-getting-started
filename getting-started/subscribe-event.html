@@ -23,6 +23,12 @@
         <button v-on:click="say('what')">Say what</button>
     </div>
 
+    <div id="example-3a">
+        <button v-on:click="warn('Form cannot be submitted yet.', $event)">
+        Submit
+        </button>
+    </div>
+
     <script>
         var example1 = new Vue({
             el: '#example-1',
@@ -56,6 +62,19 @@
             el: '#example-3',
             methods: {
                 say: function(message) {
+                    alert(message)
+                }
+            }
+        })
+
+        new Vue({
+            el: "#example-3a",
+            methods: {
+                warn: function(message, event) {
+                    // ネイティブイベントを参照しています
+                    if (event) {
+                        event.preventDefault()
+                    }
                     alert(message)
                 }
             }
