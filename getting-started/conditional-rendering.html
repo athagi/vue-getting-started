@@ -30,6 +30,21 @@
         </div>
     </div>
 
+    <div id="app4">
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+    </div>
+
 
     <script>
         var vm1 = new Vue({
@@ -48,6 +63,13 @@
 
         new Vue({
             el: "#app3"
+        })
+
+        var vm4 = new Vue({
+            el: "#app4",
+            data: {
+                type: "A"
+            }
         })
     </script>
 </body>
