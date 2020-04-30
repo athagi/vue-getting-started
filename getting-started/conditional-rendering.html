@@ -21,12 +21,16 @@
         </template>
     </div>
 
-    <div v-if="Math.random() > 0.5">
-        Now you see me
+    <div id="app3">
+        <div v-if="Math.random() > 0.5">
+            Now you see me
+        </div>
+        <div v-else>
+            Now you don't
+        </div>
     </div>
-    <div v-else>
-        Now you don't
-    </div>
+
+
     <script>
         var vm1 = new Vue({
             el: "#app1",
@@ -40,6 +44,10 @@
             data: {
                 ok: true
             }
+        })
+
+        new Vue({
+            el: "#app3"
         })
     </script>
 </body>
