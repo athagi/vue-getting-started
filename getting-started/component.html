@@ -30,6 +30,12 @@
         <blog-post-1 v-for="post in posts" v-bind:key="post.id" v-bind:post="post">
     </div>
 
+    <hr>
+    <div id="blog-posts-events-demo">
+        <div :style="{ fontSize: postFontSize + 'em' }">
+            <blog-post-event v-for="post in posts" v-bind:key="post.id" v-bind:post="post" v-on:enlarge-text="postFontSize += 0.1"></blog-post>
+        </div>
+    </div>
 
     <script>
         Vue.component('button-counter', {
@@ -94,6 +100,40 @@
                     id: 3,
                     content: '<span style="color: yellow"> this should be yellow</span>'
                 }]
+            }
+        })
+
+        Vue.component('blog-post-event', {
+            props: ['post'],
+            template: `
+    <div class="blog-post">
+      <h3>{{ post.title }}</h3>
+      <button v-on:click="$emit('enlarge-text')">
+        Enlarge text
+      </button>
+      <div v-html="post.content"></div>
+    </div>
+  `
+        })
+
+        new Vue({
+            el: "#blog-posts-events-demo",
+            data: {
+                postFontSize: 1,
+                posts: [{
+                    id: 1,
+                    title: "title1",
+                    content: '<span style="color: red"> this should be red</span>'
+                }, {
+                    id: 2,
+                    title: "title2",
+                    content: '<span style="color: green"> this should be green</span>'
+                }, {
+                    id: 3,
+                    title: "title3",
+                    content: '<span style="color: yellow"> this should be yellow</span>'
+                }]
+
             }
         })
     </script>
