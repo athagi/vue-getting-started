@@ -37,6 +37,13 @@
         </div>
     </div>
 
+    <hr>
+    <div id="example-2">
+        <alert-box>
+            Something bad happened.
+        </alert-box>
+    </div>
+
     <script>
         Vue.component('button-counter', {
             data: function() {
@@ -140,6 +147,18 @@
                     this.postFontSize += enlargeAmount
                 }
             }
+        })
+
+        Vue.component('alert-box', {
+            template: `
+    <div class="demo-alert-box">
+      <strong>Error!</strong>
+      <slot></slot>
+    </div>
+  `
+        })
+        new Vue({
+            el: "#example-2"
         })
     </script>
 
