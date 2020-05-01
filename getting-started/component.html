@@ -33,7 +33,7 @@
     <hr>
     <div id="blog-posts-events-demo">
         <div :style="{ fontSize: postFontSize + 'em' }">
-            <blog-post-event v-for="post in posts" v-bind:key="post.id" v-bind:post="post" v-on:enlarge-text="postFontSize += $event"></blog-post>
+            <blog-post-event v-for="post in posts" v-bind:key="post.id" v-bind:post="post" v-on:enlarge-text="onEnlargeText"></blog-post>
         </div>
     </div>
 
@@ -134,6 +134,11 @@
                     content: '<span style="color: yellow"> this should be yellow</span>'
                 }]
 
+            },
+            methods: {
+                onEnlargeText: function(enlargeAmount) {
+                    this.postFontSize += enlargeAmount
+                }
             }
         })
     </script>
