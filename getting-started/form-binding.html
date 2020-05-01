@@ -77,6 +77,23 @@
     </div>
     <hr>
 
+    <div id="example-8">
+        <input type="checkbox" v-model="toggle" true-value="yes" false-value="no">
+
+    </div>
+
+    <div id="example-9">
+        <input type="radio" v-model="pick" v-bind:value="a">
+
+    </div>
+
+    <div id="example-10">
+        <select v-model="selected">
+            <!-- インラインオブジェクトリテラル -->
+            <option v-bind:value="{ number: 123 }">123</option>
+        </select>
+    </div>
+
     <script>
         new Vue({
             el: "#example-1 ",
@@ -142,6 +159,30 @@
                     text: 'Three',
                     value: 'C'
                 }]
+            }
+        })
+
+        vm1 = new Vue({
+            el: "#example-8",
+            data: {
+                toggle: true,
+            }
+        })
+
+        vm2 = new Vue({
+            el: "#example-9",
+            data: {
+                pick: "",
+                a: ""
+            }
+        })
+
+        vm3 = new Vue({
+            el: "#example-10",
+            data: {
+                selected: {
+                    number: 0
+                }
             }
         })
     </script>
